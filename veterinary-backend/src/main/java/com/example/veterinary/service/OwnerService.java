@@ -31,7 +31,7 @@ public class OwnerService {
         owner.setOwnerId(id);
         return ownerRepository.save(owner);
     }
-
+   
     public void deleteOwner(int id) {
         ownerRepository.deleteById(id);
     }

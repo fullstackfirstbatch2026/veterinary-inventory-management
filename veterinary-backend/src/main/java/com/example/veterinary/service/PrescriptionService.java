@@ -30,13 +30,10 @@ public class PrescriptionService {
         return prescriptionRepository.findById(id).orElse(null);
     }
 
-    // Create prescription using MySQL Stored Procedure
+    // Create prescription using @Procedure
     public void createPrescription(Prescription prescription) {
 
-        String sql = "CALL create_prescription(?, ?, ?, ?, ?)";
-
-        jdbcTemplate.update(
-                sql,
+        prescriptionRepository.createPrescription(
                 prescription.getAnimalId(),
                 prescription.getMedicineId(),
                 prescription.getQuantity(),
